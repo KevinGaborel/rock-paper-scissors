@@ -1,0 +1,21 @@
+#btn-retry{
+    position: absolute;
+    left: calc(50% - (14em/2));
+    width: 12rem;
+    bottom: -1.5rem;
+    height: 2.5rem;
+    border-radius: 5px;
+    color: hsl(229, 25%, 31%);
+    outline: none;
+    border: none;
+
+    animation: 2s step-end btn-appears;
+}
+@keyframes btn-appears{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}

@@ -1,0 +1,68 @@
+.badge{
+    height: 8rem;
+    width: 8rem;
+    border-radius: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+.badge #center-badge{
+    width: 70%;
+    height: 70%;
+    background: linear-gradient(white , rgb(202, 202, 202));
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    border-top: solid 6px #CBCCDD;
+}
+.badge div img{
+    object-fit: contain;
+    width: 50%;
+}
+
+.badge-rock{
+    background: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+    border-bottom: solid 6px #9B1737;
+}
+.badge-paper{
+    background: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+    border-bottom: solid 6px #2845BE;
+}
+.badge-scissors{
+    background: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+    border-bottom: solid 6px #C66F0B;
+}
+
+#place-0{
+    bottom: calc(80% - (8rem /2));
+}
+#place-1{
+    bottom: calc(80% - (8rem /2));
+    right: 0;
+}
+#place-2{
+    bottom: 10%;
+    left: calc(50% - (8rem /2));
+}
+
+.wait-computer{
+    background-color: #131631;
+    width: 70%;
+    height: 70%;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+}
+.badge-hide{
+    height: 8rem;
+    width: 8rem;
+    background-color: transparent;
+    border-radius: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}

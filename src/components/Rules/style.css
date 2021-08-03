@@ -1,0 +1,9 @@
+#btn-rules{
+    width: 33%;
+    height: 3rem;
+    background-color: transparent;
+    color: white;
+    font-weight: 700;
+    border: solid white 2px;
+    border-radius: 10px;
+}
