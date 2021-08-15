@@ -1,8 +1,7 @@
 #btn-retry{
-    position: absolute;
-    left: calc(50% - (14em/2));
+    position: relative;
     width: 12rem;
-    bottom: -1.5rem;
+    top: 15rem;
     height: 2.5rem;
     border-radius: 5px;
     color: hsl(229, 25%, 31%);
@@ -17,5 +16,11 @@
     }
     to{
         opacity: 1;
+    }
+}
+
+@media screen and (min-width: 600px){
+    #btn-retry{
+        top: 90%;
     }
 }

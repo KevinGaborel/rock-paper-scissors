@@ -8,7 +8,6 @@ body{
     background: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
     display: flex;
     flex-direction: column;
-    height: 100vh;
 }
 
 #root{
@@ -16,45 +15,84 @@ body{
     flex-direction: column;
     align-items: center;
     height: 100vh;
+    width: 80%;
+    align-self: center;
 }
 
+#main-container{
+    height: 80%;
+    display: flex;
+    align-items: center;
+}
 main{
     margin: 3rem 0;
-    height: 35vh;
-    width: 80%;
     position: relative;
+    width: 10rem;
+    height: 10rem;
+    display: flex;
+    justify-content: center;
 }
 #choice{
     background-image: url("../../images/bg-triangle.svg");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 70%;
+    background-size: 10rem 10rem;
+    display: flex;
+    justify-content: center;
 }
 #game{
     color: white;
 }
 /* la petite phrase: */
-#player{
-    position: absolute;
-    bottom: 45%;
-    left: 7%;
+#player, #computer{
+    white-space: nowrap;
     font-size: 0.8rem;
     font-weight: 700;
+    position: absolute;
+    bottom: 45%;
+}
+#player{
+    right: 75%;
 }
 #computer{
-    position: absolute;
-    bottom: 45%;
-    right: 0;
-    font-size: 0.8rem;
-    font-weight: 700;
+    left: 60%;
 }
 
 #result-game{
     font-size: 2rem;
     position: absolute;
-    display: flex;
-    justify-content: center;
-    bottom: 10%;
+    top: 90%;
     font-weight: 700;
-    width: 100%;
+    text-align: center;
+    width: 100vw;
+}
+
+@media screen and (min-width: 600px){
+    #root{
+        width: 90%;
+    }
+    main{
+        width: 15rem;
+    }
+    #choice{
+        background-size: 15rem 15rem;
+        height: 80%;
+    }
+    #game{
+        height: 80%;
+    }
+    #player, #computer{
+        font-size: 1.2rem;
+        bottom: 43%;
+    }
+    #player{
+        right: 76%;
+    }
+    #computer{
+        left: 58%;
+    }
+    #result-game{
+        font-size: 2.5rem;
+        top: 70%;
+    }
 }

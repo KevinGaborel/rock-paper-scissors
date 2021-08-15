@@ -1,13 +1,14 @@
 #score-hud{
-    margin: 3rem;
+    margin-top: 2rem;
     padding: 0.5rem;
     border: hsl(217, 16%, 45%) solid 3px;
     border-radius: 7px;
     display: flex;
     justify-content: space-between;
+    width: 100%;
 }
 #score-hud img{
-    width: 33%;
+    width: 40%;
     padding: 0.7rem;
 }
 #score-container{
@@ -28,4 +29,17 @@
     color: hsl(229, 25%, 31%);
     font-size: 2.2rem;
     font-weight: 700;
+}
+
+@media screen and (min-width: 600px){
+    #score-hud{
+        margin-top: 2rem;
+        padding: 0.5rem;
+        border: hsl(217, 16%, 45%) solid 3px;
+        border-radius: 7px;
+        display: flex;
+        justify-content: space-between;
+        width: 50vh;
+        height: 15vh;
+    }
 }

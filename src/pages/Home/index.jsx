@@ -19,8 +19,8 @@ function Home() {
   const badges = ["rock", "paper", "scissors"];
 
   const play = (value) => {
-    setStepGame({choice: value, step: 'game', score: stepGame.score});
-    setTimeout(() => setStepGame({choice: value, step: 'game', computerChoice: badges[getRandomIntInclusive()], score: stepGame.score}), 2000);
+    setStepGame({choice: value, step: 'game', computerChoice: stepGame.computerChoice, score: stepGame.score});
+    setTimeout(() => setStepGame({choice: value, step: 'game', computerChoice: badges[getRandomIntInclusive()], score: stepGame.score}), 1000);
   };
 
   function getRandomIntInclusive() {
@@ -55,7 +55,8 @@ function Home() {
   }
 
   useEffect(() => {
-    if (stepGame.step !== 'choice'){
+    if (stepGame.step !== 'choice' && stepGame.computerChoice !== false){
+      console.log(stepGame);
       setTimeout(() => setStepGame({
         choice: stepGame.choice, 
         step: stepGame.step, 
@@ -69,6 +70,7 @@ function Home() {
 
   useEffect(() => {
     if (stepGame.result === "YOU WIN"){
+      console.log(stepGame);
       setStepGame({
         choice: stepGame.choice, 
         step: stepGame.step, 
@@ -84,60 +86,64 @@ function Home() {
   return (
     <React.Fragment>
       <ScoreHud score={stepGame.score} />
-      <main id={stepGame.step} >
-
-          {stepGame.choice === 'none' && stepGame.step === 'choice' 
-          ? 
-          badges.map((badge, index) => 
-          <button key={badge + index} className={`badge-${badge} badge`} id={`place-${index}`} onClick={() => play(badge)}>
-            <Badge  value={badge} />
-          </button>) 
-          : 
-            <React.Fragment>
-              <button className={`badge-${stepGame.choice} badge`} id="place-0" >
-                <Badge  value={stepGame.choice} />
-              </button>
-              <p id="player">YOU PICKED</p>
-
-              {stepGame.computerChoice ? 
-                <React.Fragment>
-                  <button className={`badge-${stepGame.computerChoice} badge`} id="place-1" >
-                    <Badge  value={stepGame.computerChoice} />
-                  </button>
-                  <p id="computer">THE HOUSE PICKED</p>
-
-                  {stepGame.result !== 'none' && 
-                    <React.Fragment> 
-                      <p id="result-game" >{stepGame.result}</p>
-                      <Retry>
-                        <button id="btn-retry" onClick={()=> setStepGame({  
-                          score: stepGame.score, 
-                          choice: 'none',
-                          step: 'choice',
-                          computerChoice: false,
-                          result: 'none'
-                          })} >PLAY AGAIN
-                        </button>
-                      </Retry>
-                    </React.Fragment>
-                  }
-
-                </React.Fragment>
-              :
-                <React.Fragment>
-                  <button className={`badge-hide`} id="place-1" >
-                    <Badge  value={stepGame.computerChoice} />
-                  </button>
-                  <p id="computer">THE HOUSE PICKED</p>
-                </React.Fragment>
-              }
-
-                
-
-            </React.Fragment>
-         }
-      </main>
-      <Rules />
+      <div id="main-container">
+        <main id={stepGame.step} >
+  
+            {stepGame.choice === 'none' && stepGame.step === 'choice' 
+            ? 
+            badges.map((badge, index) => 
+            <button key={badge + index} className={`badge-${badge} badge`} id={`place-${index}`} onClick={() => play(badge)}>
+              <Badge  value={badge} />
+            </button>) 
+            : 
+              <React.Fragment>
+                <button className={`badge-${stepGame.choice} badge`} id="place-0" >
+                  <Badge  value={stepGame.choice} />
+                </button>
+                <p id="player">YOU PICKED</p>
+  
+                {stepGame.computerChoice ? 
+                  <React.Fragment>
+                    <button className={`badge-${stepGame.computerChoice} badge`} id="place-1" >
+                      <Badge  value={stepGame.computerChoice} />
+                    </button>
+                    <p id="computer">THE HOUSE PICKED</p>
+  
+                    {stepGame.result !== 'none' && 
+                      <React.Fragment> 
+                        <p id="result-game" >{stepGame.result}</p>
+                        <Retry>
+                          <button id="btn-retry" onClick={()=> setStepGame({  
+                            score: stepGame.score, 
+                            choice: 'none',
+                            step: 'choice',
+                            computerChoice: false,
+                            result: 'none'
+                            })} >PLAY AGAIN
+                          </button>
+                        </Retry>
+                      </React.Fragment>
+                    }
+  
+                  </React.Fragment>
+                :
+                  <React.Fragment>
+                    <button className='wait-computer badge'>
+                      <Badge  value={stepGame.computerChoice} />
+                    </button>
+                    <p id="computer">THE HOUSE PICKED</p>
+                  </React.Fragment>
+                }
+  
+                  
+  
+              </React.Fragment>
+           }
+        </main>
+      </div>
+      <footer>
+        <Rules />
+      </footer>
     </React.Fragment>
   );
 }
